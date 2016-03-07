@@ -4,17 +4,26 @@ using System.IO;
 
 namespace VKApp
 {
+    /// <summary>
+    /// Base class for operation with VK API
+    /// </summary>
     class VKApiOperationBase
     {
         private string appId = "5339510";
         private string scope = "audio";
 
+        /// <summary>
+        /// Performing Login operation
+        /// </summary>
         public void Login(WebBrowser webBrowser)
         {
             string url = "https://oauth.vk.com/authorize?client_id=" + appId + "&display=popup&redirect_uri=https://oauth.vk.com/blank.html&scope=" + scope + "&response_type=token&v=5.45";
             webBrowser.Navigate(url);
         }
 
+        /// <summary>
+        /// Return token and id
+        /// </summary>
         public string GetToken(WebBrowser webBrowser, out string id)
         {
             if (webBrowser.Url.ToString().Contains("#access_token"))
@@ -33,6 +42,9 @@ namespace VKApp
             }
         }
 
+        /// <summary>
+        /// Performing Logout operation by deleting cookies
+        /// </summary>
         public void Logout()
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Cookies);

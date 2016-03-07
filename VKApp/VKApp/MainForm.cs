@@ -18,11 +18,17 @@ namespace VKApp
 
         }
 
+        /// <summary>
+        /// Login button calls AuthorizationForm
+        /// </summary>
         private void login_button_Click(object sender, EventArgs e)
         {
             new AuthorizationForm().Show();
         }
 
+        /// <summary>
+        /// Logout button delete cookies
+        /// </summary>
         private void logout_button_Click(object sender, EventArgs e)
         {
             VKApiOperationBase logoutOperation = new VKApiOperationBase();

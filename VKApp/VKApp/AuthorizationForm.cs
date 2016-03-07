@@ -19,6 +19,9 @@ namespace VKApp
             loginOperation.Login(webBrowser);
         }
 
+        /// <summary>
+        /// Receiving token from response when page loaded in webBrowser
+        /// </summary>
         private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             string token;
